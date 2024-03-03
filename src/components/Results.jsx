@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import ReactPlayer from 'react-player';
-import { useStateContext } from '../contexts/StateContextProvider';
+import { useStateContext } from '../contexts/StateContextProvider.jsx';
 import { Loading } from './Loading';
 
 export const Results = () => {

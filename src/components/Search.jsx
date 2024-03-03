@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDebounce } from 'use-debounce';
-
-import { useStateContext } from '../contexts/StateContextProvider';
+import { useStateContext } from '../contexts/StateContextProvider.jsx';
 import { Links } from './Links';
 
 export const Search = () => {
-  const { setSearchTerm } = useStateContext();
+  const { setSearchTerm } = useStateContext(); 
   const [text, setText] = useState('Elon Musk');
   const [debouncedValue] = useDebounce(text, 300);
 
