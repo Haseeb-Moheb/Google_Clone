@@ -9,14 +9,19 @@ export const Results = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (searchTerm !== '') {
-      if (location.pathname === '/videos') {
-        getResults(`/search/q=${searchTerm} videos`);
-      } else {
-        getResults(`${location.pathname}/q=${searchTerm}&num=40`);
+    const fetchResults = async () => {
+      if (searchTerm !== '') {
+        if (location.pathname === '/videos') {
+          await getResults(`/search/q=${searchTerm} videos`);
+        } else {
+          await getResults(`${location.pathname}/q=${searchTerm}&num=40`);
+        }
       }
-    }
-  }, [searchTerm, location.pathname]);
+    };
+
+    fetchResults(); // Call the async function here
+
+  }, [searchTerm, location.pathname, getResults]); // Include all dependencies in the dependency array
 
   if (loading) return <Loading />;
 
