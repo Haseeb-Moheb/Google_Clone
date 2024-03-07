@@ -19,7 +19,6 @@ export const Results = () => {
   }, [searchTerm, location.pathname]);
 
   if (loading) return <Loading />;
-
   switch (location.pathname) {
     case '/search':
       return (
